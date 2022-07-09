@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 mb-5">
+            <div class="col-12 mb-5 d-md-none d-sm-block">
                 <!-- spacer -->
             </div>
         </div>
