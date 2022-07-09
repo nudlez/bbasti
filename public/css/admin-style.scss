@@ -1,0 +1,11 @@
+@font-face {
+    font-family: Comfoorta;
+    src: url('../fonts/Comfortaa.ttf');
+}
+
+.ck-editor__editable_inline{
+    height: 250px !important;
+}
+
+$font-family-base: 'Comfoorta';
+@import 'bs/scss/bootstrap';

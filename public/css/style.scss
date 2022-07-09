@@ -1,0 +1,41 @@
+@font-face {
+    font-family: Comfortaa;
+    src: url("../fonts/Comfortaa.ttf");
+}
+
+nav a{
+    @extend .text-decoration-none;
+    @extend .text-dark;
+}
+
+$enable-rounded: false;
+$font-family-base: "Comfortaa";
+@import "bs/scss/bootstrap";
+
+.login-box{
+    @include media-breakpoint-up(md){
+        border: 1px solid rgba(0,0,0,0.2);
+    }
+
+    @include media-breakpoint-down(sm){
+        border-top: 1px solid rgba(0,0,0,0.2);
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+
+}
+
+.item-title, .item-price{
+    @include media-breakpoint-up(md){
+        font-size: 25px;
+    }
+
+    @include media-breakpoint-down(sm){
+        font-size: 18px;
+    }
+}
+
+.logo{
+    @include media-breakpoint-down(md){
+        text-align: center;
+    }
+}
