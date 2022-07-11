@@ -25,10 +25,6 @@
                         </div>
                         <div class="mt-3">
                             <button class="btn btn-outline-dark" type="button" id="cartButton">Add to cart</button>
-                            <form action="{{ route('cart.add') }}" method="POST" id="cart">
-                                @csrf
-                                <input type="hidden" name="item" value="{{ Crypt::encrypt($item->id) }}">
-                            </form>
                             <button class="btn btn-outline-dark">Buy now</button>
                         </div>
                     </div>
@@ -39,6 +35,10 @@
             </div>
         </div>
     </div>
+    <form action="{{ route('cart.add') }}" method="POST" id="cart">
+        @csrf
+        <input type="hidden" name="item" value="{{ Crypt::encrypt($item->id) }}">
+    </form>
 @endsection
 
 @section('scripts')
