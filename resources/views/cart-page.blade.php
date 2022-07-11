@@ -5,6 +5,11 @@
         <div class="row mt-5">
             <div class="col-lg-8 col-md-8 col-sm-12 col-12 mx-auto">
                 <div class="row">
+                    <div class="col-12">
+                        <span class="fs-3 fw-bold">My Cart</span>
+                    </div>
+                </div>
+                <div class="row">
                     @foreach ($items as $item)
                         <div class="col-12 mt-3">
                             <div>
