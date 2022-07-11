@@ -10,23 +10,29 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach ($items as $item)
+                    @if (count($items) == 0)
                         <div class="col-12 mt-3">
-                            <div>
-                                <small>{{ $item->name }}</small>
-                            </div>
+                            You do not have items on your cart yet.
                         </div>
-                        <div class="col-12 border-bottom pb-3">
-                            <div class="row">
-                                <div class="col-2">
-                                    <img src="{{ asset('storage/images/'.$item->attributes[0]['image']) }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-10 text-end my-auto">
-                                    &#8369;{{ number_format($item->price) }}
+                    @else
+                        @foreach ($items as $item)
+                            <div class="col-12 mt-3">
+                                <div>
+                                    <small>{{ $item->name }}</small>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                            <div class="col-12 border-bottom pb-3">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="{{ asset('storage/images/'.$item->attributes[0]['image']) }}" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-10 text-end my-auto">
+                                        &#8369;{{ number_format($item->price) }}
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
