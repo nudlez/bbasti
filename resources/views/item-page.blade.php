@@ -24,27 +24,16 @@
                             {!! $item->description !!}
                         </div>
                         <div class="mt-3">
-                            <button class="btn btn-outline-dark" type="button" id="cartButton">Add to cart</button>
+                            <button class="btn btn-outline-dark" type="button" onclick="addCart('{{Crypt::encrypt($item->id)}}')">Add to cart</button>
                             <button class="btn btn-outline-dark">Buy now</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <x-add_to_cart />
             <div class="col-12 mb-5 d-md-none d-sm-block">
                 <!-- spacer -->
             </div>
         </div>
     </div>
-    <form action="{{ route('cart.add') }}" method="POST" id="cart">
-        @csrf
-        <input type="hidden" name="item" value="{{ Crypt::encrypt($item->id) }}">
-    </form>
-@endsection
-
-@section('scripts')
-    <script>
-        document.getElementById("cartButton").addEventListener("click", e => {
-            document.getElementById("cart").submit();
-        });
-    </script>
 @endsection

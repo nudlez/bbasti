@@ -5,3 +5,8 @@ var modalSmallContent = document.querySelector("#modal_small .modal-body");
 
 var alert = new bootstrap.Toast(document.querySelector("#alertToast"));
 var alertContent = document.querySelector("#alertToast .toast-body");
+
+function addCart(item){
+    document.getElementById('cartItem').setAttribute('value', item);
+    document.getElementById('addToCart').submit();
+}

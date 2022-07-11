@@ -19,7 +19,7 @@
                                     <span class="fw-bold text-danger">&#8369;{{ number_format($item->disc_price) }}</span>
                                 </div>
                                 <div class="mt-2">
-                                    <button type="button" class="btn btn-sm btn-outline-dark">Add To Cart</button>
+                                    <button type="button" class="btn btn-sm btn-outline-dark" onclick="addCart('{{Crypt::encrypt($item->id)}}')">Add To Cart</button>
                                 </div>
                             </div>
                         </div>
@@ -28,4 +28,5 @@
             </div>
         </div>
     </div>
+    <x-add_to_cart />
 @endsection
