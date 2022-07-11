@@ -27,7 +27,7 @@ class CartController extends Controller
     }
 
     public function cart_get(){
-        $cart = \Cart::session(Session::getId())->getContent();
-        return dd($cart);
+        $items = \Cart::session(Session::getId())->getContent();
+        return view('cart-page', ['items'=>$items]);
     }
 }
