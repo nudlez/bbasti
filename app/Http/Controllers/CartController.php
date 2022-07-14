@@ -32,7 +32,7 @@ class CartController extends Controller
             'quantity' => 1,
             'attributes' => array(['image'=>$item->main_img]),
         ]);
-        return back()->with('alert', 'Item added to cart');
+        return back()->with('cart-alert', 'Item added to cart');
     }
 
     public function cart_get(){

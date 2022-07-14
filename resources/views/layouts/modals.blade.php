@@ -39,3 +39,18 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="alertModal">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <i data-feather="check-circle"></i>
+                </div>
+                <div class="mt-2 text-center" id="content">
+                </div>
+            </div>
+            <button class="btn btn-dark w-100" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>

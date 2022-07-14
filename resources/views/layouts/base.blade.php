@@ -83,6 +83,14 @@
             alert.show();
         </script>
     @endif
+
+    @if (Session::has('cart-alert'))
+        <script>
+            alertModalContent.innerHTML = "{{ Session::get('cart-alert') }}";
+            alertModal.show();
+        </script>
+    @endif
+
     @yield('scripts')
 </body>
 </html>

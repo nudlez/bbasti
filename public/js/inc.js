@@ -3,6 +3,9 @@ var modalSmall = new bootstrap.Modal(document.querySelector("#modal_small"));
 var modalLargeContent = document.querySelector("#modal_large .modal-body");
 var modalSmallContent = document.querySelector("#modal_small .modal-body");
 
+var alertModal = new bootstrap.Modal(document.querySelector("#alertModal"));
+var alertModalContent = document.querySelector("#alertModal #content");
+
 var alert = new bootstrap.Toast(document.querySelector("#alertToast"));
 var alertContent = document.querySelector("#alertToast .toast-body");
 
