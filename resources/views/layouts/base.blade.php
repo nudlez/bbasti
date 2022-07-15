@@ -58,11 +58,11 @@
                                 </nav>
                             </div>
                             <div class="col-sm-2 col-2 d-md-none d-sm-block border-start">
-                                <div class="w-100 h-100 d-flex text-center">
+                                <a href="{{ route('cart.get') }}" class="w-100 h-100 d-flex text-center text-dark">
                                     <div class="m-auto">
                                         <i data-feather="shopping-bag"></i>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>

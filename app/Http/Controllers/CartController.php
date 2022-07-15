@@ -21,7 +21,7 @@ class CartController extends Controller
             'item' => 'required',
         ]);
 
-        $item = Item::select('id', 'name', 'disc_price', 'main_img')
+        $item = Item::select('id', 'name', 'disc_price', 'thumb')
                 ->where('id', Crypt::decrypt($request->item))
                 ->first();
 
@@ -30,13 +30,14 @@ class CartController extends Controller
             'name' => $item->name,
             'price' => $item->disc_price,
             'quantity' => 1,
-            'attributes' => array(['image'=>$item->main_img]),
+            'attributes' => array(['image'=>$item->thumb]),
         ]);
         return back()->with('cart-alert', 'Item added to cart');
     }
 
     public function cart_get(){
         $items = \Cart::session($this->session_id())->getContent();
-        return view('cart-page', ['items'=>$items]);
+        $total = \Cart::session($this->session_id())->getTotal();
+        return view('cart-page', ['items'=>$items, 'total'=>$total]);
     }
 }
