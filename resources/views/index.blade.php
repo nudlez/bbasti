@@ -26,6 +26,7 @@
                     @endforeach
                 </div>
             </div>
+            <div class="col-12 mb-5 pb-5 spacer">{{-- spacer --}}</div>
         </div>
     </div>
     <x-add_to_cart />

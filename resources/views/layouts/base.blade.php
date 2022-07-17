@@ -46,7 +46,7 @@
                                                 </a>
                                                 <ul class="dropdown-menu p-2" aria-labelledby="userDropDown">
                                                     <li class="py-2"><a href="{{ route('user.home') }}">Profile</a></li>
-                                                    <li class="py-2">My Shopping Bag</li>
+                                                    <li class="py-2"><a href="{{ route('cart.get') }}">My Shopping Bag</a></li>
                                                     <li class="py-2">
                                                         <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
                                                         <form action="{{ route('logout') }}" class="hidden" id="logout" method="POST">@csrf</form>

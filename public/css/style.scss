@@ -39,3 +39,9 @@ $font-family-base: "Comfortaa";
         text-align: center;
     }
 }
+
+.spacer{
+    @include media-breakpoint-up(md){
+        display: none;
+    }
+}
