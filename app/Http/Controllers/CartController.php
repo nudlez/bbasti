@@ -14,18 +14,24 @@ class CartController extends Controller
 {   
 
     public function session_id(){
-        $sessionID = (Auth::check()) ? Auth::user()->id : Session::getId();
+        $sessionID = ( Auth::check() ) ? Auth::user()->id : Session::getId();
         return $sessionID;
     }
 
-    public function cart_add(Request $request){
+    public function cart_add( Request $request ){
         $request->validate([
             'item' => 'required',
         ]);
 
-        $item = Item::select('id', 'name', 'disc_price', 'thumb')
-                ->where('id', Crypt::decrypt($request->item))
+        $item = Item::select( 'id', 'name', 'disc_price', 'thumb' )
+                ->where( 'id', Crypt::decrypt( $request->item ) )
                 ->first();
+
+        $exists = \Cart::session($this->session_id())->getContent();
+
+        if(Arr::exists($exists, $item->id)){
+            return back()->with('alert', 'Item already added to cart');
+        }
 
         if(Auth::check()){
             $existing = Cart::select('item_id')->where('user_id', Auth::user()->id)->get();
@@ -48,8 +54,8 @@ class CartController extends Controller
     }
 
     public function cart_get(){
-        $items = \Cart::session($this->session_id())->getContent();
-        $total = \Cart::session($this->session_id())->getTotal();
-        return view('cart-page', ['items'=>$items, 'total'=>$total]);
+        $items = \Cart::session( $this->session_id() )->getContent();
+        $total = \Cart::session( $this->session_id() )->getTotal();
+        return view( 'cart-page', [ 'items'=>$items, 'total'=>$total ] );
     }
 }
