@@ -27,6 +27,16 @@ class CartController extends Controller
                 ->where('id', Crypt::decrypt($request->item))
                 ->first();
 
+        if(Auth::check()){
+            $existing = Cart::select('item_id')->where('user_id', Auth::user()->id)->get();
+            if(!Arr::exists($existing, $item->id)){
+                Cart::create([
+                    'user_id' => Auth::user()->id,
+                    'item_id' => $item->id,
+                ]);
+            }
+        }
+
         \Cart::session($this->session_id())->add([
             'id' => $item->id, 
             'name' => $item->name,
