@@ -6,7 +6,14 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mx-auto">
                 <div class="row">
                     <div class="col-12 pb-3 border-bottom">
-                        <span class="fs-3 fw-bold">My Cart</span>
+                        <div class="d-flex">
+                            <div class="me-auto">
+                                <span class="fs-3 fw-bold">My Cart</span>
+                            </div>
+                            <div class="ms-auto">
+                                <button class="btn btn-sm btn-outline-danger">Clear All</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -41,6 +48,11 @@
                                     <span class="fs-5">&#8369;{{ number_format($total) }}</span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <button class="btn btn-dark w-100">
+                                Checkout
+                            </button>
                         </div>
                     @endif
                 </div>
