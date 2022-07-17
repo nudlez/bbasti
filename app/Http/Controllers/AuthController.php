@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cart;
+use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -21,6 +23,20 @@ class AuthController extends Controller
     
             if (Auth::attempt($creds)) {
                 $request->session()->regenerate();
+
+                $existing = Cart::where('user_id', Auth::user()->id)->get();
+                if(count($existing) > 0){
+                    foreach($existing as $exist){
+                        $item = Item::find($exist->item_id);
+                        \Cart::session(Auth::user()->id)->add([
+                            'id' => $item->id, 
+                            'name' => $item->name,
+                            'price' => $item->disc_price,
+                            'quantity' => 1,
+                            'attributes' => array(['image'=>$item->thumb]),
+                        ]);
+                    }
+                }
     
                 return redirect()->route('home');
             }
