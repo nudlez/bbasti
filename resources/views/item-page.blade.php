@@ -24,7 +24,11 @@
                             {!! $item->description !!}
                         </div>
                         <div class="mt-3">
-                            <button class="btn btn-outline-dark" type="button" onclick="addCart('{{Crypt::encrypt($item->id)}}')">Add to cart</button>
+                            @if ($exists)
+                                <button class="btn btn-outline-dark" type="button" disabled>Added to cart</button>
+                            @else
+                                <button class="btn btn-outline-dark" type="button" onclick="addCart('{{Crypt::encrypt($item->id)}}')">Add to cart</button>
+                            @endif
                             <button class="btn btn-outline-dark">Buy now</button>
                         </div>
                     </div>

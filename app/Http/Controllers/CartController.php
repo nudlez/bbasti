@@ -8,15 +8,13 @@ use App\Models\Cart;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
+use App\Http\Traits\SessionId;
 use Session;
 
 class CartController extends Controller
 {   
 
-    public function session_id(){
-        $sessionID = ( Auth::check() ) ? Auth::user()->id : Session::getId();
-        return $sessionID;
-    }
+    use SessionId;
 
     public function cart_add( Request $request ){
         $request->validate([

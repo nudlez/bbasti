@@ -11,7 +11,9 @@
                                 <span class="fs-3 fw-bold">My Cart</span>
                             </div>
                             <div class="ms-auto">
-                                <button class="btn btn-sm btn-outline-danger">Clear All</button>
+                                <button class="btn btn-sm btn-outline-danger" @if (count($items)<= 0)
+                                    disabled
+                                @endif>Clear All</button>
                             </div>
                         </div>
                     </div>
