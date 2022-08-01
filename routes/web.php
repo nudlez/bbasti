@@ -16,5 +16,7 @@ Route::group(['prefix'=>'user', 'controller'=>UserController::class], function()
     Route::get('/dashboard', 'index')->name('user.home');
 });
 
-Route::post('/cart/add', [CartController::class, 'cart_add'])->name('cart.add');
+Route::get('/cart/add/{id}', [CartController::class, 'cart_add'])->name('cart.add');
 Route::get('/cart/show', [CartController::class, 'cart_get'])->name('cart.get');
+Route::get('/cart/remove/{id}', [CartController::class, 'cart_remove'])->name('cart.remove');
+Route::get('/cart/test', [CartController::class, 'test'])->name('cart.test');

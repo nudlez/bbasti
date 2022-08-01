@@ -19,7 +19,7 @@
                                     <span class="fw-bold text-danger">&#8369;{{ number_format($item->disc_price) }}</span>
                                 </div>
                                 <div class="mt-2">
-                                    <button type="button" class="btn btn-sm btn-outline-dark" onclick="addCart('{{Crypt::encrypt($item->id)}}')">Add To Cart</button>
+                                    <button type="button" class="btn btn-sm btn-outline-dark" onclick="ajxcall('GET', '{{ route('cart.add', Crypt::encrypt($item->id)) }}', addCart)">Add To Cart</button>
                                 </div>
                             </div>
                         </div>
@@ -29,5 +29,4 @@
             <div class="col-12 mb-5 pb-5 spacer">{{-- spacer --}}</div>
         </div>
     </div>
-    <x-add_to_cart />
 @endsection

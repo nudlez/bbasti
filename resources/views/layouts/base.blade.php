@@ -17,6 +17,29 @@
     <div class="container-fluid">
         <div class="row  border-bottom">
             <div class="col-12">
+                <div class="row bg-dark d-md-block d-none">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-12 mx-auto py-2 text-end bg-dark">
+                        <a href="#" class="text-white text-decoration-none">
+                            @if (!Auth::user())
+                                <a href="{{ route('login') }}" class="text-white text-decoration-none">Login</a>
+                            @else
+                                <div class="dropdown-center">
+                                    <a href="#" class="text-decoration-none text-white dropdown-toggle" role="button" id="userDropDown" data-bs-toggle="dropdown">
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                    <ul class="dropdown-menu p-2" aria-labelledby="userDropDown">
+                                        <li class="py-2"><a href="{{ route('user.home') }}">Profile</a></li>
+                                        <li class="py-2"><a href="{{ route('cart.get') }}">My Shopping Bag</a></li>
+                                        <li class="py-2">
+                                            <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
+                                            <form action="{{ route('logout') }}" class="hidden" id="logout" method="POST">@csrf</form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @endif
+                        </a>
+                    </div>
+                </div>
                 <div class="row g-0">
                     <div class="col-lg-8 col-md-12 col-sm-12 col-12 mx-auto">
                         <div class="row">
@@ -35,26 +58,7 @@
                                     <div>mens</div>
                                     <div>womens</div>
                                     <div>kids</div>
-                                    <div>
-                                        @if (!Auth::user())
-                                            <a href="{{ route('login') }}">login</a>
-                                            
-                                        @else
-                                            <div class="dropdown-center">
-                                                <a href="#" class="text-decoration-none text-dark dropdown-toggle" role="button" id="userDropDown" data-bs-toggle="dropdown">
-                                                    {{ Auth::user()->name }}
-                                                </a>
-                                                <ul class="dropdown-menu p-2" aria-labelledby="userDropDown">
-                                                    <li class="py-2"><a href="{{ route('user.home') }}">Profile</a></li>
-                                                    <li class="py-2"><a href="{{ route('cart.get') }}">My Shopping Bag</a></li>
-                                                    <li class="py-2">
-                                                        <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
-                                                        <form action="{{ route('logout') }}" class="hidden" id="logout" method="POST">@csrf</form>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        @endif
-                                    </div>
+                                    <div>cart</div>
                                 </nav>
                             </div>
                             <div class="col-sm-2 col-2 d-md-none d-sm-block border-start">

@@ -1,17 +1,15 @@
-<div class="modal" id="modal_large">
+<div class="modal fade" id="modal_large">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
-            </div>
+
         </div>
     </div>
 </div>
 
-<div class="modal" id="modal_small">
+<div class="modal fade" id="modal_small">
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
-            </div>
+
         </div>
     </div>
 </div>
